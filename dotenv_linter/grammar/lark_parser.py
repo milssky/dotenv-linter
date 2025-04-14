@@ -18,6 +18,8 @@ class DotenvTransformer(Transformer):
         return self._body_items
 
     def line(self, items):
+        if not items:
+            raise ParsingError('No items found')
         return items[0]
 
     def assign(self, items):
@@ -39,6 +41,7 @@ class DotenvTransformer(Transformer):
 
     def comment(self, items):
         return Comment.from_token(items[0])
+
 
 class DotenvLarkParser:
     def __init__(self):
