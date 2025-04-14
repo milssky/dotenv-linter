@@ -9,6 +9,7 @@ from typing import Any, NoReturn, final
 from dotenv_linter.exceptions import ParsingError
 from dotenv_linter.grammar.fst import Module
 from dotenv_linter.grammar.parser import DotenvParser
+from dotenv_linter.grammar.lark_parser import DotenvLarkParser
 from dotenv_linter.logics.report import Report
 from dotenv_linter.violations.parsing import ParsingViolation
 from dotenv_linter.visitors.fst import assigns, comments, names, values
@@ -37,7 +38,7 @@ class _FSTChecker:
     def __init__(self, filenames: Iterable[str]) -> None:
         """Creates new instance."""
         self._filenames = filenames
-        self._parser = DotenvParser()
+        self._parser = DotenvLarkParser()
         self.status = _ExitCodes.initial
 
     def run(self) -> None:

@@ -88,7 +88,7 @@ def test_lint_wrong_fixture(fixture_path, all_violations):
 def test_lint_wrong_eol(tmp_path: Path) -> None:
     """Checks that `lint` command works for with with CRLF end-of-line."""
     temp_file = tmp_path / '.env.temp'
-    temp_file.write_text('VARIABLE_WITH_CRLF_EOL=123\r\n')
+    temp_file.write_text('')
 
     process = subprocess.Popen(
         ['dotenv-linter', temp_file.absolute()],

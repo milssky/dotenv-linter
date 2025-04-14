@@ -6,7 +6,7 @@ _tabversion = '3.10'
 
 _lr_method = 'LALR'
 
-_lr_signature = 'COMMENT EQUAL NAME VALUE\n        body :\n             | body line\n        \n        line : assign\n             | name\n             | comment\n        \n        assign : NAME EQUAL\n               | NAME EQUAL VALUE\n        name : NAMEcomment : COMMENT'
+_lr_signature = 'COMMENT EQUAL NAME VALUE\nbody :\n     | body line\n\nline : assign\n     | name\n     | comment\n\nassign : NAME EQUAL\n       | NAME EQUAL VALUE\nname : NAMEcomment : COMMENT'
     
 _lr_action_items = {'NAME':([0,1,2,3,4,5,6,7,8,9,],[-1,6,-2,-3,-4,-5,-8,-9,-6,-7,]),'COMMENT':([0,1,2,3,4,5,6,7,8,9,],[-1,7,-2,-3,-4,-5,-8,-9,-6,-7,]),'$end':([0,1,2,3,4,5,6,7,8,9,],[-1,0,-2,-3,-4,-5,-8,-9,-6,-7,]),'EQUAL':([6,],[8,]),'VALUE':([8,],[9,]),}
 

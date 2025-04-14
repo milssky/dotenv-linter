@@ -53,7 +53,7 @@ class Node:
     def from_token(cls: type[TNode], token: lex.LexToken) -> TNode:
         """Creates instance from parser's token."""
         return cls(
-            lineno=token.lineno,
+            lineno=token.line,
             raw_text=token.value,
         )
 
@@ -112,7 +112,7 @@ class Assign(Statement):
         return cls(
             left=Name.from_token(name_token),
             right=value_item,
-            lineno=name_token.lineno,
+            lineno=name_token.line,
             raw_text=equal_token.value,
         )
 
