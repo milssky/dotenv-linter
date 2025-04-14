@@ -14,3 +14,4 @@ EQUAL: /[ \t\v\f\u00A0]*=/
 VALUE: /.+/
 
 _NEWLINE: /[\n\r\u2028\u2029]+/
+%ignore /[ \t\v\f\u00A0]+/

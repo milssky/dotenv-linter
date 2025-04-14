@@ -22,11 +22,12 @@ class DotenvTransformer(Transformer):
 
     def assign(self, items):
         name_token = items[0]
-        equal_token = Token("EQUAL", "=", line=name_token.line, column=name_token.column + len(name_token))
+        equal_token = items[1]
         value_token = items[2] if len(items) == 3 else None
-        if value_token:
-            value_token.value = value_token.value.rstrip("\r\n")
-            value_token.value = value_token.value.replace("\\\r", "r").replace("\\\n", "n")
+        # value_token = items[2]
+        # if value_token:
+        #     value_token.value = value_token.value.rstrip("\r\n")
+        #     value_token.value = value_token.value.replace("\\\r", "r").replace("\\\n", "n")
         return Assign.from_token(
             name_token=name_token,
             equal_token=equal_token,

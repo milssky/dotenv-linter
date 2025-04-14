@@ -108,7 +108,6 @@ class Assign(Statement):
             value_item = None
         else:
             value_item = Value.from_token(value_token)
-
         return cls(
             left=Name.from_token(name_token),
             right=value_item,
